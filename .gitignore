@@ -1,0 +1,72 @@
+# ==========================================
+# Flutter / Dart / Pub related
+# ==========================================
+**/doc/api/
+**/ios/Flutter/.last_build_id
+.dart_tool/
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+/build/
+/coverage/
+
+# ==========================================
+# Symbolication & Obfuscation
+# ==========================================
+app.*.symbols
+app.*.map.json
+
+# ==========================================
+# Android / Windows / Linux / macOS / IDEs
+# ==========================================
+/android/app/debug
+/android/app/profile
+/android/app/release
+windows/flutter/ephemeral/
+linux/flutter/ephemeral/
+macos/Flutter/ephemeral/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ==========================================
+# Visual Studio & Build Artifacts
+# ==========================================
+x64/
+x86/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.[Cc]ache
+!*.[Cc]ache/
+
+# ==========================================
+# Servidor Backend (PostgreSQL & Datos)
+# ==========================================
+/lib/server/pgdata/
+/server/pgdata/
+/lib/server/postgresqlbin/
+/server/postgresqlbin/
+**/pgdata/
+**/postgresqlbin/
+
+# ==========================================
+# Instaladores y Ejecutables (Inno Setup)
+# ==========================================
+/installer/Output/
+/installer_output/
+*.exe
+*.msi
+*.bin
+
+# ==========================================
+# Misceláneos / OS
+# ==========================================
+*.class
+*.log
+*.pyc
+*.swp
+.DS_Store
+Thumbs.db
