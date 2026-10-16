@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'server/server_setup_helper.dart';
 import 'logs/error_logger.dart';
+import 'login/login_screen.dart'; // Módulo de login importado
 
 void main(List<String> args) async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -64,7 +65,6 @@ void main(List<String> args) async {
       print('[App Main] ¡Servidor y API REST iniciados con éxito!');
     } catch (e, stack) {
       print('[App Main] Error crítico al levantar el servidor: $e');
-      // Aseguramos que el error se guarde en el archivo de logs
       await ErrorLogger.logError('Arranque Principal del Servidor (Main)', e, stack);
     }
   }
@@ -80,46 +80,13 @@ class PosApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'POS Plug & Play',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: role == 'server' ? const ServerDashboardScreen() : const TerminalScreen(),
-    );
-  }
-}
-
-class ServerDashboardScreen extends StatelessWidget {
-  const ServerDashboardScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('POS - Panel de Servidor Principal')),
-      body: const Center(
-        child: Text(
-          '🟢 Este equipo actúa como Servidor (Base de datos y servicios activos)',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
-      ),
-    );
-  }
-}
-
-class TerminalScreen extends StatelessWidget {
-  const TerminalScreen({super.key});
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('POS - Terminal de Caja (Cliente)')),
-      body: const Center(
-        child: Text(
-          '🔵 Este equipo actúa como Terminal de Red',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          textAlign: TextAlign.center,
-        ),
-      ),
+      home: LoginScreen(role: role), // Inicia directamente con el Login modular
     );
   }
 }

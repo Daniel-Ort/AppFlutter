@@ -70,3 +70,6 @@ x86/
 *.swp
 .DS_Store
 Thumbs.db
+
+# Ignorar archivos de texto y licencias sueltos
+*.txt
